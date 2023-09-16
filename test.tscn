@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ocalyouwcmc"]
+
+[ext_resource type="PackedScene" uid="uid://d35jatm81q15a" path="res://scenes/board.tscn" id="1_sib86"]
+[ext_resource type="PackedScene" uid="uid://dj21g3xvpkyrh" path="res://scenes/card.tscn" id="2_i870a"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Board" parent="." instance=ExtResource("1_sib86")]
+position = Vector2(116, 39)
+
+[node name="Card" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(22, 92)
+board = NodePath("../Board")
+
+[node name="Card2" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(38, 50)
+board = NodePath("../Board")
+
+[node name="Card3" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(55, 116)
+board = NodePath("../Board")
+
+[node name="Card5" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(45, 224)
+board = NodePath("../Board")
+
+[node name="Card6" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(27, 182)
+board = NodePath("../Board")
+
+[node name="Card7" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(57, 172)
+board = NodePath("../Board")
+
+[node name="Card8" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(15, 141)
+board = NodePath("../Board")
+
+[node name="Card9" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(63, 151)
+board = NodePath("../Board")
+
+[node name="Card4" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
+position = Vector2(69, 73)
+board = NodePath("../Board")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cla25rcsh7sfq"]
+
+[ext_resource type="Script" path="res://scripts/cell.gd" id="1_5cfyq"]
+[ext_resource type="Texture2D" uid="uid://cx681prvkst3l" path="res://assets/scifitiles-sheet.png" id="1_rurwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa4or"]
+atlas = ExtResource("1_rurwf")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q48hu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa4or")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cell" type="Node2D"]
+modulate = Color(0.717647, 0.717647, 0.717647, 1)
+texture_filter = 1
+script = ExtResource("1_5cfyq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q48hu")
