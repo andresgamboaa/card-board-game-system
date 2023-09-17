@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cngnnml84agsv"]
+
+[ext_resource type="Script" path="res://scripts/moves.gd" id="1_d6pfh"]
+[ext_resource type="Texture2D" uid="uid://cx681prvkst3l" path="res://assets/scifitiles-sheet.png" id="2_t0pry"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55u40"]
+atlas = ExtResource("2_t0pry")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xplu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55u40")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Moves" type="Node2D"]
+script = ExtResource("1_d6pfh")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 0)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-32, 0)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 32)
+sprite_frames = SubResource("SpriteFrames_7xplu")

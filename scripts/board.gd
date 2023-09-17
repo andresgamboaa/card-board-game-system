@@ -1,30 +1,53 @@
 @tool
 class_name Board extends Node2D
 
-# CONSTS________________________________________________________________________
+# CONSTS _______________________________________________________________________
 const WIDTH := 8
 const HEIGHT := WIDTH
 const CELL_SIZE := 32
 
+# PRIVATE VARIABLES ____________________________________________________________
 @onready var _tile_scene = preload("res://scenes/tile.tscn")
 @onready var _grid: Dictionary = _initialize_grid()
 
 
+# PUBLIC METHODS _______________________________________________________________
 func contains(global_position:Vector2) -> bool:
 	var grid_width = CELL_SIZE * WIDTH
 	var grid_height = CELL_SIZE * HEIGHT
 	var offset = floor(CELL_SIZE / 2)
-	var rect = Rect2(self.global_position - Vector2(offset, offset), Vector2(grid_width, grid_height))
+	var rect = Rect2(
+		self.global_position - Vector2(offset, offset), 
+		Vector2(grid_width, grid_height)
+	)
 	return rect.has_point(global_position)
 
 
 func get_snap_position(global_position: Vector2) -> Vector2:
-	return round(to_local(global_position) / CELL_SIZE) * CELL_SIZE + self.global_position
+	return (
+		round(to_local(global_position) / CELL_SIZE) * CELL_SIZE +
+		self.global_position
+	)
 
 
-func is_position_valid(global_position: Vector2) -> bool:
+func mark_valid_positions(global_positions) -> void:
+	for global_position in global_positions:
+		if contains(global_position):
+			var cell: Cell = _grid[global_to_grid_position(global_position)]
+			cell.valid = true
+
+
+func unmark_valid_positions() -> void:
+	for cell in _grid.values():
+		cell = cell as Cell
+		cell.valid = false
+
+
+func is_position_valid(global_position: Vector2, only_valid_cells) -> bool:
 	if contains(global_position):
 		var cell: Cell = _grid[global_to_grid_position(global_position)]
+		if only_valid_cells:
+			return cell.is_clear() and cell.valid
 		return cell.is_clear()
 	return false
 
@@ -57,6 +80,7 @@ func to_grid_position(local_position: Vector2) -> Vector2:
 	return floor(local_position / CELL_SIZE)
 
 
+# PRIVATE METHODS ______________________________________________________________
 func _initialize_grid() -> Dictionary:
 	var grid: Dictionary
 	

@@ -6,40 +6,20 @@
 [node name="Test" type="Node2D"]
 
 [node name="Board" parent="." instance=ExtResource("1_sib86")]
-position = Vector2(116, 39)
-
-[node name="Card" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(22, 92)
-board = NodePath("../Board")
-
-[node name="Card2" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(38, 50)
-board = NodePath("../Board")
-
-[node name="Card3" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(55, 116)
-board = NodePath("../Board")
+position = Vector2(103, 25)
 
 [node name="Card5" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(45, 224)
+position = Vector2(163, 290)
 board = NodePath("../Board")
 
 [node name="Card6" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(27, 182)
+position = Vector2(197, 290)
 board = NodePath("../Board")
 
 [node name="Card7" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(57, 172)
+position = Vector2(231, 290)
 board = NodePath("../Board")
 
 [node name="Card8" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(15, 141)
-board = NodePath("../Board")
-
-[node name="Card9" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(63, 151)
-board = NodePath("../Board")
-
-[node name="Card4" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
-position = Vector2(69, 73)
+position = Vector2(265, 290)
 board = NodePath("../Board")

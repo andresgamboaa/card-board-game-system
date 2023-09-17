@@ -7,6 +7,12 @@ var content:
 		else:
 			content = null
 
+var valid: bool:
+	set(value):
+		valid = value
+		$ValidSprite.visible = valid
+
+
 func add_card(card: Card):
 	content = card
 

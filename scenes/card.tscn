@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dj21g3xvpkyrh"]
+[gd_scene load_steps=7 format=3 uid="uid://dj21g3xvpkyrh"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_cmda1"]
 [ext_resource type="Texture2D" uid="uid://cx681prvkst3l" path="res://assets/scifitiles-sheet.png" id="1_rp32k"]
+[ext_resource type="PackedScene" uid="uid://cngnnml84agsv" path="res://scenes/moves.tscn" id="3_atmvp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgeg5"]
 atlas = ExtResource("1_rp32k")
@@ -22,17 +23,22 @@ animations = [{
 size = Vector2(30, 30)
 
 [node name="Card" type="Area2D"]
-modulate = Color(0.384314, 0.439216, 0.67451, 1)
 monitoring = false
 monitorable = false
 script = ExtResource("1_cmda1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0.415686, 0.764706, 1)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_kngew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_m8m0j")
+
+[node name="Moves" parent="." instance=ExtResource("3_atmvp")]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+
+[editable path="Moves"]
