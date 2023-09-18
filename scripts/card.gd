@@ -8,15 +8,13 @@ var ANIMATION_DURATION = 0.08
 
 
 # PRIVATE VARIABLES ____________________________________________________________
-@onready 
-var _last_valid_pos := position
-var _is_dragging := false
-var _is_mouse_over := false
-var is_mouse_over := false
-var _is_on_board := false
-var _dragging_offset := Vector2.ZERO
 @onready var moves := $Moves
-var _moves: Array[Vector2]
+@onready var last_valid_pos := position
+
+var is_dragging := false
+var is_mouse_over := false
+var is_on_board := false
+var dragging_offset := Vector2.ZERO
 var move_positions: Array[Vector2]
 
 

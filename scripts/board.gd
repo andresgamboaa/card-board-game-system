@@ -1,10 +1,12 @@
 @tool
 class_name Board extends Node2D
 
+
 # CONSTS _______________________________________________________________________
 const WIDTH := 8
 const HEIGHT := WIDTH
 const CELL_SIZE := 32
+
 
 # PRIVATE VARIABLES ____________________________________________________________
 @onready var _tile_scene = preload("res://scenes/tile.tscn")
@@ -32,43 +34,43 @@ func get_snap_position(global_position: Vector2) -> Vector2:
 
 func mark_valid_positions(global_positions) -> void:
 	for global_position in global_positions:
-		if contains(global_position):
-			var cell: Cell = _grid[global_to_grid_position(global_position)]
+		var cell: Cell = get_cell_at(global_position)
+		if is_instance_valid(cell):
 			cell.valid = true
 
 
 func unmark_valid_positions() -> void:
 	for cell in _grid.values():
-		cell = cell as Cell
 		cell.valid = false
 
 
-func is_position_valid(global_position: Vector2, only_valid_cells) -> bool:
-	if contains(global_position):
-		var cell: Cell = _grid[global_to_grid_position(global_position)]
-		if only_valid_cells:
+func is_position_valid(global_position: Vector2, only_clear_cells) -> bool:
+	var cell = get_cell_at(global_position)
+	if is_instance_valid(cell):
+		if only_clear_cells:
 			return cell.is_clear() and cell.valid
 		return cell.is_clear()
-	return false
+	else:
+		return false
 
 
-func get_cell_from(grid_position: Vector2) -> Vector2:
-	return _grid[grid_position]
+func get_cell_at(global_position: Vector2) -> Cell:
+	return _grid.get(global_to_grid_position(global_position))
 
 
 func add_card(card: Card) -> void:
-	if contains(card.position):
-		var cell: Cell = _grid[global_to_grid_position(card.position)]
+	var cell = get_cell_at(card.global_position)
+	if is_instance_valid(cell): 
 		cell.add_card(card)
 
 
-func clear_position(global_position) -> void:
-	if contains(global_position):
-		var cell: Cell = _grid[global_to_grid_position(global_position)]
+func clear_position(global_position: Vector2) -> void:
+	var cell = get_cell_at(global_position)
+	if is_instance_valid(cell): 
 		cell.clear()
 
 
-func grid_position_to_world(grid_position: Vector2) -> Vector2:
+func grid_position_to_local(grid_position: Vector2) -> Vector2:
 	return grid_position * CELL_SIZE
 
 

@@ -34,3 +34,10 @@ func enter() -> void:
 # to clean up the state.
 func exit() -> void:
 	pass
+
+func to(next_state: String):
+	state_machine.to(next_state)
+
+
+func go_back() -> void:
+	state_machine.to_previous()

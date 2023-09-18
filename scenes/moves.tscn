@@ -33,7 +33,27 @@ sprite_frames = SubResource("SpriteFrames_7xplu")
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(-32, -32)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, -32)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_7xplu")
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-32, 32)
 sprite_frames = SubResource("SpriteFrames_7xplu")
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
