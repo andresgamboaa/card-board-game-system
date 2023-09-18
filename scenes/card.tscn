@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj21g3xvpkyrh"]
+[gd_scene load_steps=11 format=3 uid="uid://dj21g3xvpkyrh"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_cmda1"]
 [ext_resource type="Texture2D" uid="uid://cx681prvkst3l" path="res://assets/scifitiles-sheet.png" id="1_rp32k"]
 [ext_resource type="PackedScene" uid="uid://cngnnml84agsv" path="res://scenes/moves.tscn" id="3_atmvp"]
+[ext_resource type="Script" path="res://scripts/card_state_machine.gd" id="4_er262"]
+[ext_resource type="Script" path="res://scripts/initial.gd" id="5_a0ugo"]
+[ext_resource type="Script" path="res://scripts/drag.gd" id="6_sr3e1"]
+[ext_resource type="Script" path="res://scripts/idle.gd" id="7_25usj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgeg5"]
 atlas = ExtResource("1_rp32k")
@@ -37,6 +41,19 @@ visible = false
 shape = SubResource("RectangleShape2D_m8m0j")
 
 [node name="Moves" parent="." instance=ExtResource("3_atmvp")]
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_er262")
+initial_state = NodePath("START")
+
+[node name="START" type="Node2D" parent="StateMachine"]
+script = ExtResource("5_a0ugo")
+
+[node name="DRAG" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_sr3e1")
+
+[node name="IDLE" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_25usj")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
