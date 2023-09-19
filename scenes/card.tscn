@@ -41,18 +41,19 @@ visible = false
 shape = SubResource("RectangleShape2D_m8m0j")
 
 [node name="Moves" parent="." instance=ExtResource("3_atmvp")]
+visible = false
 
-[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_er262")
 initial_state = NodePath("START")
 
-[node name="START" type="Node2D" parent="StateMachine"]
+[node name="START" type="Node" parent="StateMachine"]
 script = ExtResource("5_a0ugo")
 
-[node name="DRAG" type="Node2D" parent="StateMachine"]
+[node name="DRAG" type="Node" parent="StateMachine"]
 script = ExtResource("6_sr3e1")
 
-[node name="IDLE" type="Node2D" parent="StateMachine"]
+[node name="IDLE" type="Node" parent="StateMachine"]
 script = ExtResource("7_25usj")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

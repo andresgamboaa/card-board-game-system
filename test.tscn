@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ocalyouwcmc"]
+[gd_scene load_steps=5 format=3 uid="uid://d1ocalyouwcmc"]
 
 [ext_resource type="PackedScene" uid="uid://d35jatm81q15a" path="res://scenes/board.tscn" id="1_sib86"]
 [ext_resource type="PackedScene" uid="uid://dj21g3xvpkyrh" path="res://scenes/card.tscn" id="2_i870a"]
+[ext_resource type="PackedScene" uid="uid://bpqp5lwyaqsxc" path="res://scenes/enemy_manager.tscn" id="2_w102g"]
+[ext_resource type="PackedScene" uid="uid://dccp1mro3lrs2" path="res://scenes/enemy.tscn" id="3_pp4s1"]
 
 [node name="Test" type="Node2D"]
 
 [node name="Board" parent="." instance=ExtResource("1_sib86")]
 position = Vector2(103, 25)
+
+[node name="EnemyManager" parent="." instance=ExtResource("2_w102g")]
+enemy_scene = ExtResource("3_pp4s1")
 
 [node name="Card5" parent="." node_paths=PackedStringArray("board") instance=ExtResource("2_i870a")]
 position = Vector2(163, 290)

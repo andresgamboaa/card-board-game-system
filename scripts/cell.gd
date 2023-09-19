@@ -7,17 +7,20 @@ var content:
 		else:
 			content = null
 
+
 var valid: bool:
 	set(value):
 		valid = value
 		$ValidSprite.visible = valid
 
 
-func add_card(card: Card):
+func add_card(card: Node2D):
 	content = card
+
 
 func clear():
 	content = null
+
 
 func is_clear() -> bool:
 	return content == null

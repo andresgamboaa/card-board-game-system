@@ -54,6 +54,10 @@ func is_position_valid(global_position: Vector2, only_clear_cells) -> bool:
 		return false
 
 
+func get_cells() -> Array:
+	return _grid.values()
+
+
 func get_cell_at(global_position: Vector2) -> Cell:
 	return _grid.get(global_to_grid_position(global_position))
 
@@ -95,3 +99,6 @@ func _initialize_grid() -> Dictionary:
 			add_child(cell)
 	
 	return grid
+
+func _ready():
+	Global.board = self

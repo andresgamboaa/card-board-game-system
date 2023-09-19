@@ -17,20 +17,21 @@ func _ready() -> void:
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
 		child.state_machine = self
-	state.enter()
+	if state:
+		state.enter()
 
 
 # The state machine subscribes to node callbacks and delegates them to the state objects.
 func _unhandled_input(event: InputEvent) -> void:
-	state.handle_input(event)
+	if state: state.handle_input(event)
 
 
 func _process(delta: float) -> void:
-	state.update(delta)
+	if state: state.update(delta)
 
 
 func _physics_process(delta: float) -> void:
-	state.physics_update(delta)
+	if state: state.physics_update(delta)
 
 
 # This function calls the current state's exit() function, then changes the active state,
