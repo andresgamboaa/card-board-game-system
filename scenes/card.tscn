@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj21g3xvpkyrh"]
+[gd_scene load_steps=12 format=3 uid="uid://dj21g3xvpkyrh"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_cmda1"]
 [ext_resource type="Texture2D" uid="uid://cx681prvkst3l" path="res://assets/scifitiles-sheet.png" id="1_rp32k"]
@@ -25,6 +25,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8m0j"]
 size = Vector2(30, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_218fx"]
+font_size = 9
 
 [node name="Card" type="Area2D"]
 monitoring = false
@@ -55,6 +58,14 @@ script = ExtResource("6_sr3e1")
 
 [node name="IDLE" type="Node" parent="StateMachine"]
 script = ExtResource("7_25usj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = -18.0
+offset_right = 19.0
+offset_bottom = 3.0
+text = "3"
+label_settings = SubResource("LabelSettings_218fx")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

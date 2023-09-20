@@ -2,7 +2,10 @@ class_name Enemy extends Node2D
 
 
 # Properties ___________________________________________________________________
-@export var life := 2
+@export var life := 2:
+	set(value):
+		life = value
+
 @export var animation_duration := 0.5
 
 

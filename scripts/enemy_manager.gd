@@ -7,11 +7,11 @@ func _ready():
 
 
 func spawn_enemies(number: int) -> void:
-	var cells = Global.board.get_cells() as Array[Cell]
+	var tiles = Global.board.get_tiles() as Array[Tile]
 	
 	for i in range(number):
-		var cell = cells[randi_range(0, len(cells)-1)]
+		var tile = tiles[randi_range(0, len(tiles)-1)]
 		var enemy = enemy_scene.instantiate() as Enemy
 		add_child(enemy)
-		await enemy.snap_to(cell.global_position)
-		cell.add_card(enemy)
+		await enemy.snap_to(tile.global_position)
+		tile.add_card(enemy)

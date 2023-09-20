@@ -24,6 +24,7 @@ Global="*res://scripts/global.gd"
 
 window/size/viewport_width=400
 window/size/viewport_height=300
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 

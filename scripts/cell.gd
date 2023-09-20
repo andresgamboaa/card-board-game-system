@@ -1,4 +1,4 @@
-class_name Cell extends Node2D
+class_name Tile extends Node2D
 
 var content:
 	set(value):

@@ -33,7 +33,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cell" type="Node2D"]
+[node name="Tile" type="Node2D"]
 modulate = Color(0.717647, 0.717647, 0.717647, 1)
 texture_filter = 1
 script = ExtResource("1_5cfyq")
